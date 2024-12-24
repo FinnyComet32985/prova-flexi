@@ -55,4 +55,4 @@ router.get(
         }
     }
 );
-export default router;
+export const fisioterapistaRouter = Router();

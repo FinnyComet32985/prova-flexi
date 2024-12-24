@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import fisioterapistaRouter from "./routes/fisioterapistaRouter.ts";
+import { fisioterapistaRouter } from "./routes/fisioterapistaRouter";
 
 const app = express();
 const PORT = process.env.PORT || 1337;
