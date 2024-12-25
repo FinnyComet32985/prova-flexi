@@ -61,4 +61,5 @@ fisioterapistaRouter.get(
 
 fisioterapistaRouter.get("/test", (req, res) => {
     console.log("test");
+    res.json({ message: "test" });
 });
