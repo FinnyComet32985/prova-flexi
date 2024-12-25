@@ -112,3 +112,7 @@ exports.fisioterapistaRouter.get("/pazienti", authenticateJWT_1.authenticateJWT,
         }
     });
 }); });
+exports.fisioterapistaRouter.get("/test", function (req, res) {
+    console.log("test");
+    res.json({ message: "test" });
+});
