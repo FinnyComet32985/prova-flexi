@@ -40,14 +40,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fisioterapistaGetPazientiByFisioterapistaJWT = exports.fisioterapistaLogin = exports.fisioterapistaRegister = void 0;
-var bcrypt_1 = __importDefault(require("bcrypt"));
+var bcryptjs_1 = __importDefault(require("bcryptjs"));
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var connection_1 = __importDefault(require("../database/connection"));
 var fisioterapistaRegister = function (nome, cognome, email, password) { return __awaiter(void 0, void 0, void 0, function () {
     var hashedPassword, result, fisioterapistaId, token;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, bcrypt_1.default.hash(password, 10)];
+            case 0: return [4 /*yield*/, bcryptjs_1.default.hash(password, 10)];
             case 1:
                 hashedPassword = _a.sent();
                 return [4 /*yield*/, connection_1.default.query("INSERT INTO Fisioterapisti (nome, cognome, email, password) VALUES (?, ?, ?, ?)", [nome, cognome, email, hashedPassword])];
@@ -78,7 +78,7 @@ var fisioterapistaLogin = function (email, password) { return __awaiter(void 0, 
                 if (rows.length === 0)
                     throw new Error("Utente non trovato");
                 fisioterapista = rows[0];
-                return [4 /*yield*/, bcrypt_1.default.compare(password, fisioterapista.password)];
+                return [4 /*yield*/, bcryptjs_1.default.compare(password, fisioterapista.password)];
             case 2:
                 isValidPassword = _a.sent();
                 if (!isValidPassword)
