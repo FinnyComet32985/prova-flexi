@@ -1,5 +1,10 @@
-import mysql from "mysql2/promise";
-const pool = mysql.createPool({
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var promise_1 = __importDefault(require("mysql2/promise"));
+var pool = promise_1.default.createPool({
     host: "localhost",
     user: "root",
     password: "",
@@ -8,4 +13,4 @@ const pool = mysql.createPool({
     connectionLimit: 10,
     queueLimit: 0,
 });
-export default pool;
+exports.default = pool;
